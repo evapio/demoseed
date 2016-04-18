@@ -1,0 +1,6 @@
+# Use the generic hyperplane base
+FROM containers.evap.io/devops:base
+
+MAINTAINER HYPERPLANE
+
+RUN apt-get -y update

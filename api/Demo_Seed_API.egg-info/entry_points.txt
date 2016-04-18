@@ -1,0 +1,3 @@
+[console_scripts]
+api = products.server:main
+

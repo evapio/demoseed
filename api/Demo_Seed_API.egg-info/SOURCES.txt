@@ -1,0 +1,8 @@
+setup.py
+Demo_Seed_API.egg-info/PKG-INFO
+Demo_Seed_API.egg-info/SOURCES.txt
+Demo_Seed_API.egg-info/dependency_links.txt
+Demo_Seed_API.egg-info/entry_points.txt
+Demo_Seed_API.egg-info/top_level.txt
+products/__init__.py
+products/server.py

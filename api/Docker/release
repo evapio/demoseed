@@ -1,0 +1,9 @@
+# Use the generic hyperplane base
+FROM containers.evap.io/devops:base
+
+MAINTAINER Evap
+COPY . /tmp/app_build
+RUN mkdir -p /var/opt/propeller
+RUN cp /tmp/app_build/config/local.yaml  /var/opt/propeller/local.yaml
+RUN pip install /tmp/app_build
+RUN rm -rf /tmp/app_build
