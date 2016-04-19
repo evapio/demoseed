@@ -1,0 +1,33 @@
+{
+    "name": "demo",
+    "description": "Product Demo for Osmo",
+    "main": "app.js",
+    "authors": [
+        "Evap.io"
+    ],
+    "license": "CC0-1.0",
+    "keywords": [
+        "Osmo",
+        "Evap"
+    ],
+    "moduleType": [],
+    "homepage": "http://evap.io",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "angular": "^1.5.1",
+        "angular-route": "^1.5.1",
+        "angular-loader": "^1.5.1",
+        "angular-material": "^1.0.6",
+        "angular-ui-validate": "^1.2.2",
+        "ng-resource": "^0.0.2",
+        "angular-resource": "^1.5.2",
+        "angular-messages": "^1.5.3"
+    }
+}
