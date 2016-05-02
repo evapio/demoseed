@@ -1,0 +1,25 @@
+<style>
+md-grid-list {
+    background-color: #F5F5F5;
+}
+
+md-grid-tile {
+    background-color: white;
+}
+
+md-grid-tile > figure > img {
+    width: auto;
+    height: 50%;
+}
+
+h3 {
+    color: black;
+}
+</style>
+<md-grid-list md-cols="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter="8px" md-gutter-gt-sm="4px">
+    <md-grid-tile ng-repeat="tile in products" md-rowspan="{{tile.span.row}}" md-colspan="{{tile.span.col}}" md-colspan-sm="1" md-colspan-xs="1">
+        <img src="{{tile.product.PictureURL}}"></img>
+        <md-grid-tile-footer>
+            <h3>{{tile.product.Title}}</h3></md-grid-tile-footer>
+    </md-grid-tile>
+</md-grid-list>

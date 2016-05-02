@@ -12,6 +12,21 @@ import pymongo
 import bson
 
 
+class OpenHandler(tornado.web.RequestHandler):
+
+    def options(self, *args, **kwargs):
+        self.finish()
+
+    def finish(self, *args, **kwargs):
+        self.set_header("Access-Control-Allow-Origin", "*")
+        self.set_header(
+            "Access-Control-Allow-Headers",
+            "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+        )
+        self.set_header("Access-Control-Allow-Methods", "PUT, DELETE")
+        super(OpenHandler, self).finish(*args, **kwargs)
+
+
 def shutdown(sig, frame):
     logging.info('Shutting down')
     sys.exit(0)
@@ -33,7 +48,7 @@ def nice_object(record):
     return new_record
 
 
-class MainHandler(tornado.web.RequestHandler):
+class MainHandler(OpenHandler):
 
     def get(self):
         products = self.settings['mongodb'].gleebo.products.find(
@@ -56,7 +71,8 @@ def main():
         )
     )
 
-    mongodb = pymongo.MongoClient("mongodb://test-db-base.service.evap")
+    mongodb = pymongo.MongoClient(
+        "mongodb://evap-zgqaovaad-eymqyrlba-qqrnqkxpj-base.service.evap")
 
     application = tornado.web.Application(
         [
