@@ -57,7 +57,7 @@ angular.module('productDemo')
             }
 
             $scope.products = results
-            console.log($scope.products)
+            // console.log($scope.products)
         })
 
 })
