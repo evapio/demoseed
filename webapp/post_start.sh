@@ -1,3 +1,4 @@
+#!/usr/bin/env sh
 cp /var/opt/config.json disco.json
 cp config_template.js config.js
 
