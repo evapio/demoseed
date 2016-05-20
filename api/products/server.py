@@ -6,6 +6,7 @@ import sys
 import signal
 import os
 import importlib
+import json
 
 import tornado.web
 import pymongo
@@ -55,7 +56,6 @@ class MainHandler(OpenHandler):
             {
             }
         )
-
         self.finish({"products": nice_list(products)})
 
 
@@ -70,9 +70,11 @@ def main():
             '%(asctime)s %(levelname)-8s %(filename)-26s %(lineno)-6d - %(message)s'
         )
     )
-
+    config = json.load(open("/var/opt/config.json", "rb"))[0]
+    logging.info(config)
     mongodb = pymongo.MongoClient(
-        "mongodb://evap-zgqaovaad-eymqyrlba-qqrnqkxpj-base.service.evap")
+        "mongodb://{}:{}/".format(config['db'][0].get('ServiceAddress'),
+                                  config['db'][0].get('ServicePort')))
 
     application = tornado.web.Application(
         [
